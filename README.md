@@ -39,7 +39,7 @@ Support: Windows 7 - Windows 10
 开发工具：Visual Studio Community 2017
 
 ## 注意
-1.首先要引用dll文件，否则程序运行不了，如需请Email：<hongjiapeng@hotmail.com>。<br>
+1.首先要自行引用项目中DLL文件夹下的dll文件。<br>
 2.要想实现功能，前提要有以上硬件设备，并且还要对物联网工程环境正确安装部署（感知层、传输层等）。<br>
 3.项目中有些地方用到了[C#6.0新特性](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-6)，自动属性初始化器等，vs2015、vs2013、vs2012请自行修改源码中不支持的部分。<br>
 
@@ -70,25 +70,6 @@ Support: Windows 7 - Windows 10
 1.修改双击标题栏实现最大化、最小化事件，实现了“300毫秒检测”<br>
 2.修改窗体移动事件<br>
 
-``` ```
-
-    try
-    {
-        DragMove();
-    }
-    catch { }
-    
-``` ```
-修改为：
-
-``` ```
-
-	if (e.LeftButton == MouseButtonState.Pressed)
-    {
-        DragMove();
-    }
-    
-``` ```  
 ##### 0.2（2018.2.8）
 1.修改App.config文件，添加数字量采集器、ZigBee四通道采集器端口等键值对信息<br>
 2.新增 主页、产品管理、内部环境、安全监控Page
