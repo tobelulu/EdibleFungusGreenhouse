@@ -136,7 +136,6 @@ namespace EdibleFungusGreenhouse.Views
             {
                 camera.PanDown();
             }
-
         }
 
         /// <summary>

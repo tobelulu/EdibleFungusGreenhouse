@@ -40,19 +40,19 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DeviceBase">
-      <HintPath>..\DLL\DeviceBase.dll</HintPath>
+      <HintPath>DLL\DeviceBase.dll</HintPath>
     </Reference>
     <Reference Include="IPCameraDll">
-      <HintPath>..\DLL\IPCameraDll.dll</HintPath>
+      <HintPath>DLL\IPCameraDll.dll</HintPath>
     </Reference>
     <Reference Include="MyCamer">
-      <HintPath>..\DLL\MyCamer.dll</HintPath>
+      <HintPath>DLL\MyCamer.dll</HintPath>
     </Reference>
     <Reference Include="Srr1100U">
-      <HintPath>..\DLL\Srr1100U.dll</HintPath>
+      <HintPath>DLL\Srr1100U.dll</HintPath>
     </Reference>
     <Reference Include="Srr110uLib">
-      <HintPath>..\DLL\Srr110uLib.dll</HintPath>
+      <HintPath>DLL\Srr110uLib.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -67,7 +67,7 @@
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
     <Reference Include="Utils">
-      <HintPath>D:\Program Files\feiq\Recv Files\单元7\dlls\Utils.dll</HintPath>
+      <HintPath>DLL\Utils.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />

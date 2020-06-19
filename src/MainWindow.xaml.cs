@@ -12,6 +12,25 @@ namespace EdibleFungusGreenhouse
     /// </summary>
     public partial class MainWindow : Window
     {
+        #region 私有成员
+
+        /// <summary>
+        /// 鼠标点击次数
+        /// </summary>
+        private int mouseDownCount;
+
+        /// <summary>
+        /// 页面数据集合
+        /// </summary>
+        private List<PageData> pageDatas = new List<PageData>
+        {
+            new PageData(){PageText="食品菌生产大棚",PagePath="/Views/PageHome.xaml",IsReturn=false },
+            new PageData(){PageText="产品管理",PagePath="/Views/PageManager.xaml",IsReturn=true },
+            new PageData(){PageText="内部环境",PagePath="/Views/PageEnvironment.xaml",IsReturn=true },
+            new PageData(){PageText="安全监控",PagePath="/Views/PageMonitor.xaml",IsReturn=true }
+        };
+        #endregion
+
         #region  构造方法
 
         public MainWindow()
@@ -23,23 +42,16 @@ namespace EdibleFungusGreenhouse
             Dispatcher.ShutdownStarted += (o, e) => { Window_Unloaded(null, null); };
             Global.gOnSkipPage += new Global.DgOnSkipPage(OnSkipPage);
 
-            Width = 1080;
-            Height = 645;
+            InitEvent();
         }
 
-        #endregion
-
-        #region 私有成员
-        /// <summary>
-        /// 页面数据集合
-        /// </summary>
-        private List<PageData> pageDatas = new List<PageData>
+        private void InitEvent()
         {
-            new PageData(){PageText="食品菌生产大棚",PagePath="/Views/PageHome.xaml",IsReturn=false },
-            new PageData(){PageText="产品管理",PagePath="/Views/PageManager.xaml",IsReturn=true },
-            new PageData(){PageText="内部环境",PagePath="/Views/PageEnvironment.xaml",IsReturn=true },
-            new PageData(){PageText="安全监控",PagePath="/Views/PageMonitor.xaml",IsReturn=true }
-        };
+            Loaded += Window_Loaded;
+            Unloaded += Window_Unloaded;
+            MouseLeftButtonDown += (s, e) => { DragMove(); };
+        }
+
         #endregion
 
         #region 事件处理
@@ -59,20 +71,6 @@ namespace EdibleFungusGreenhouse
             CheckBoxReturn.IsChecked = paged.IsReturn;
             CheckBoxReturn.IsEnabled = paged.IsReturn;
             FrameMain.Source = ResourcesHelper.Instance.GetResourceUri(paged.PagePath);
-        }
-
-        /// <summary>
-        /// 窗体移动
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Window_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
-        {
-            if (e.LeftButton == MouseButtonState.Pressed)
-            {
-                DragMove();
-            }
-            
         }
 
         /// <summary>
@@ -115,12 +113,7 @@ namespace EdibleFungusGreenhouse
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void CheckBoxReturn_Click(object sender, RoutedEventArgs e) => SkipPage(pageDatas[0]);
-
-        /// <summary>
-        /// 鼠标点击次数
-        /// </summary>
-        private int _MouseDownContent = 0;
+        private void CheckBoxReturn_Click(object sender, RoutedEventArgs e) => SkipPage(pageDatas[0]);   
 
         /// <summary>
         /// 标题栏双击
@@ -129,7 +122,7 @@ namespace EdibleFungusGreenhouse
         /// <param name="e"></param>
         private void GridTitle_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            _MouseDownContent += 1;
+            mouseDownCount += 1;
             System.Windows.Threading.DispatcherTimer timer = new System.Windows.Threading.DispatcherTimer
             {
                 Interval = TimeSpan.FromMilliseconds(300),
@@ -137,9 +130,10 @@ namespace EdibleFungusGreenhouse
             };
             timer.Tick += (s, ev) => 
             {
-                timer.IsEnabled = false;_MouseDownContent = 0;
+                timer.IsEnabled = false;
+                mouseDownCount = 0;
             };
-            if (_MouseDownContent % 2 == 0)
+            if (mouseDownCount % 2 == 0)
             {
                 ButtonMax_Click(null, null);
             }
