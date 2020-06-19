@@ -46,11 +46,11 @@ Support: Windows 7 - Windows 10
 ## 演示动画
 
 #### 产品管理页面
-![image](https://github.com/hongjiapeng/EdibleFungusGreenhouse/blob/master/Images/management.gif)   
+![image](https://github.com/hongjiapeng/EdibleFungusGreenhouse/blob/master/screenshot/management.gif)   
 #### 内部环境页面
-![image](https://github.com/hongjiapeng/EdibleFungusGreenhouse/blob/master/Images/environment.gif)   
+![image](https://github.com/hongjiapeng/EdibleFungusGreenhouse/blob/master/screenshot/environment.gif)   
 #### 安全监控页面
-![image](https://github.com/hongjiapeng/EdibleFungusGreenhouse/blob/master/Images/monitor.gif)
+![image](https://github.com/hongjiapeng/EdibleFungusGreenhouse/blob/master/screenshot/monitor.gif)
 
 
 
@@ -60,7 +60,7 @@ Support: Windows 7 - Windows 10
 1.新增“安全监控”代码<br>
 2.修改检测到火焰或烟雾直接弹出警报代码，根据“有烟无火”、“有火无烟”，“无火无烟”三种状态给用户具体、详细的提示信息。<br>
 3.新增监控页面摄像头方向控制功能，界面如下。<br>
-![image](https://github.com/hongjiapeng/EdibleFungusGreenhouse/blob/master/Images/dir_control.png) 
+![image](https://github.com/hongjiapeng/EdibleFungusGreenhouse/blob/master/screenshot/dir_control.png) 
 
 ##### 0.8（2017.7.10）
 1.完成产品管理界面，扫描电子标签功能，录制此页面gif<br>
